@@ -1,11 +1,11 @@
-#
+# Bulid a  sample of fitting graph 
 # almost all data's type in tensorflow is float32
 
 from __future__ import print_function
 import tensorflow as tf
 import numpy as np
 
-##
+## Set up the data and structure
 # Create data 
 x_data = np.random.rand(100).astype(np.float32)
 y_data = x_data*0.1 + 0.3
@@ -20,7 +20,7 @@ loss = tf.reduce_mean(tf.square(y-y_data))
 optimizr = tf.train.GradientDescentOptimizer(learning_rate)
 train = optimizer.minimize(loss)
 
-#
+## Set up the computational structure
 inti = tf.initialize_all_variables()
 sess = tf.Session
 see.run(init)
