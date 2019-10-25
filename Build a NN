@@ -48,8 +48,27 @@ sess = tf.Session()
 init = tf.global_variables_initializer()
 see.run(init)
 
-# Training
+## Training
+# Plot the real data
+fig = plt.figure()
+ax = fig.add_subplot(1,1,1)
+ax.scatter(x_data, y_data)
+plt.ion()
+plt.show
+
 for i in range(1000):
     sess.run(train_step, feed_dict={xs: x_data, ys: y_data})
     if i % 50 == 0:
         print(sess.run(loss, feed_dict={xs: x_data, ys: y_data}))
+        
+        # Visualize the result and improvement
+        try:
+            ax.line.remove(line[0])
+        except Exception
+            pass
+            
+        prediction_value = sess.run(prediction, feed_dict={xs: x_data})
+        # Plot the prediction
+        line = ax.plot(x_data, prediction_value, 'r', lw=5)
+        plit.pasue(0.1)
+        
